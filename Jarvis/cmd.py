@@ -97,9 +97,8 @@ def translate():
                     translated = translator.translate(speech_text, dest=lngTgt)
                     translated_text = translated.text
 
-                    print('Translation for', red(speech_text, 'bold'),
-                          'is', green(translated_text, 'bold'))
-                    voice = gTTS(translated_text, lang=lngTgt)
+                    print('Translation for', red(speech_text, 'bold'),'is', green(translated_text, 'bold'))
+                    voice = gTTS(f'Translation for {speech_text} is {translated_text}', lang=lngTgt)
                     voice.save('voice.mp3')
                     playsound('voice.mp3')
 
@@ -112,7 +111,7 @@ def translate():
     except Exception as e:
         print(e)
 
-translate()
+
 def Telldate():
     curr_time = time.strftime("%I:%M:%p", time.localtime())
     today = date.today()
